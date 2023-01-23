@@ -1,0 +1,31 @@
+<h2>For Countrie</h2>
+<hr />
+
+<div class="row">
+    <app-countrie-input class="col" (onEnter)="search($event)" (onDebounce)="suggestions($event)"
+        placeholder="Buscar Pais..."></app-countrie-input>
+</div>
+
+<ul class="list-group" *ngIf="showSuggestions">
+    <li class="list-group-item list-group-item-action" *ngFor="let suggestion of countriesSuggested">
+        <a class="nav-link" [routerLink]="['/countrie', suggestion.cca3]">
+        {{ suggestion.name.common }}
+        </a>
+    </li>
+    <li class="list-group-item list-group-item-action" (click)="search(term)">
+        <a class="nav-link">
+        Buscar "{{ term }}"
+        </a>
+    </li>
+
+</ul>
+
+<hr />
+
+<div *ngIf="hasError" class="alert alert-danger">
+    No se encontro nada con el termino {{ term }}
+</div>
+
+<div class="row">
+    <app-countrie-table [countries]="countries" class="col"></app-countrie-table>
+</div>

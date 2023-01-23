@@ -1,0 +1,16 @@
+<h2>For Capital</h2>
+<hr>
+
+<div class="row">
+    <app-countrie-input class="col" (onEnter)="search( $event )" placeholder="Buscar Capital..."></app-countrie-input>
+</div>
+
+<hr>
+
+<div *ngIf="hasError" class="alert alert-danger">
+    No se encontro la capital " {{term}} "
+</div>
+
+<div class="row">
+    <app-countrie-table class="col" [countries]="countries"></app-countrie-table>
+</div>

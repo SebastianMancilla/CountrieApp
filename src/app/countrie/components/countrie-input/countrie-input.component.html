@@ -1,0 +1,11 @@
+<form autocomplete="off" (ngSubmit)="search()">
+  <input
+    type="text"
+    name="term"
+    placeholder="Search Countrie..."
+    class="form-control animate__animated animate__lightSpeedInRight"
+    [(ngModel)]="term"
+    (input)="keyPress()"
+    [placeholder]="placeholder"
+  />
+</form>
